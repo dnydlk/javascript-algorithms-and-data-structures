@@ -22,3 +22,6 @@ for (const row of rows) {
 }
 
 console.log(result)
+
+let number = Math.floor(Math.random() * 50) + 51      
+console.log(number)
