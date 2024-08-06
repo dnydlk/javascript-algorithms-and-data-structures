@@ -14,8 +14,8 @@
 
 html,
 body {
-  height: 100%; /* Ensure the html and body elements take up the full height */
-  margin: 0; /* Remove any default margin */
+  height: 100%; 
+  margin: 0; 
 }
 
 body {

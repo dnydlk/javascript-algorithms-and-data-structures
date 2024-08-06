@@ -1,1 +1,2 @@
-console.log("1" + 0)
+const remainder = 3 / 1
+console.log(remainder);
