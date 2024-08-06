@@ -1,0 +1,119 @@
+:root {
+  /* Colors */
+  --c1-navy-blue: #164863;
+  --c2-dark-blue: #427d9d;
+  --c3-light-green: #9bbec8;
+  --c4-sky-blue: #ddf2fd;
+  --error-font: #ff2e2e;
+  --error-border: #C63C51;
+  --error-background: #f7a160;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: var(--c1-navy-blue);
+  color: var(--c4-sky-blue);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 70%;
+}
+
+.input-container,
+.result-container {
+  border: 3px var(--c3-light-green) solid;
+  background-color: var(--c4-sky-blue);
+  margin-bottom: 16px;
+  border-radius: 14px;
+}
+
+.input-container {
+  color: var(--c2-dark-blue);
+  padding: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*- all child of input-container */
+.input-container > * {
+  margin: 16px 0 0 0;
+}
+
+/*- label */
+.input-container :first-child {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+/*- number-input & convert-btn */
+.input-container :nth-child(2),
+.input-container :nth-child(3) {
+  width: 75%;
+  font-size: 1.2rem;
+  color: var(--c4-sky-blue);
+}
+
+/*- number-input */
+#number {
+  display: block;
+  background-color: var(--c1-navy-blue);
+  border: none;
+  padding: 4px;
+}
+
+/*- number-input */
+#convert-btn {
+  background-color: var(--c2-dark-blue);
+  border: 4px var(--c3-light-green) sold;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+#convert-btn:hover {
+  background-color: var(--c1-navy-blue);
+  cursor: pointer;
+}
+#convert-btn:active {
+  background-color: var(--c2-dark-blue);
+}
+
+/*- result-container */
+.result-container {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: var(--c1-navy-blue);
+}
+
+.error-msg {
+  color: var(--error-font);
+  border: 4px var(--error-border) solid;
+  background-color: var(--error-background);
+}
+
+.result-container :first-child {
+  margin: 16px 0;
+}
+
+.hide {
+  display: none;
+}
