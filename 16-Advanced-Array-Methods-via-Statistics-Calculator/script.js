@@ -15,28 +15,27 @@ const getMedian = (array) => {
 }
 
 const getMode = (array) => {
+  // Count the frequency of each element in the array
+  // key = number; value = frequency
   const counts = {}
-  //- Make a key-value paired Object for all the elements in the array
-  // array.forEach(el => {
-  //   if (counts[el]) {
-  //     counts[el] += 1
-  //   } else {
-  //     counts[el] = 1
-  //   }
-  // });
   array.forEach((el) => (counts[el] = (counts[el] || 0) + 1))
-  //- Check if the array doesn't have any mode
+
+  // If all elements have the same frequency, return null (no mode)
   if (new Set(Object.values(counts)).size === 1) {
     return null
   }
-  //- Get the highest count
+
+  // Find the element with the highest frequency
   const highest = Object.keys(counts).sort(
     (a, b) => counts[b] - counts[a]
   )[0]
-  //- Get the multiple highest count if there is any
+
+  // Find all elements that share the highest frequency
   const mode = Object.keys(counts).filter(
     (el) => counts[el] === counts[highest]
   )
+
+  // Return the mode(s) as a comma-separated string
   return mode.join(", ")
 }
 
@@ -66,7 +65,7 @@ const getStandardDeviation = (array) => {
 const calculate = () => {
   // Get element's value
   const value = document.querySelector("#numbers").value
-  // Remove , & space(s)
+  // Remove , and space(s)
   const array = value.split(/,\s*/g)
   // Turn string num into numeric num
   // Filter out not-number items in the array
