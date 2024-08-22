@@ -34,22 +34,36 @@ const bubbleSort = (array) => {
   return array
 }
 
-const selectionSort = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    let minIndex = i
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[j] < array[minIndex]) {
-        minIndex = j // j is the new min index
+
+  const selectionSort = (array) => {
+    // Iterate over each element of the array
+    for (let i = 0; i < array.length; i++) {
+      // Assume the minimum is at the current index
+      let minIndex = i
+
+      // Find the minimum element in the unsorted part of the array
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[j] < array[minIndex]) {
+          // Update minIndex with the new minimum element's index
+          minIndex = j
+        }
+      }
+
+      // Swap the found minimum element
+      // with the first element of the unsorted section
+      if (minIndex != i) {
+        // Temporary variable to hold the value at index i
+        const temp = array[i]
+        // Place minimum element at the start of the unsorted section
+        array[i] = array[minIndex]
+        // Move the element originally at index i to the position of the minimum
+        array[minIndex] = temp
       }
     }
-    const temp = array[i]
-    // put the min value of this iteration
-    // to the leftest position of the sorted array
-    array[i] = array[minIndex]
-    array[minIndex] = temp
+    // Return the sorted array
+    return array
   }
-  return array
-}
+
 
 const insertionSort = (array) => {
   for (let i = 1; i < array.length; i++) {
