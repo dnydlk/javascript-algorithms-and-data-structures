@@ -14,15 +14,22 @@ const taskData = JSON.parse(localStorage.getItem("data")) || []
 let currentTask = {}
 
 //- -------------- Methods -------------- -
+const removeSpecialChars = (val) => {
+  return val.trim().replace(/[^A-Za-z0-9\-\s]/g, "")
+}
+
 const addOrUpdateTask = () => {
   // Check for existing tasks
   const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id)
   // Getting the object from input
   const taskObj = {
-    id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
-    title: titleInput.value,
+    id: `${removeSpecialChars(titleInput.value)
+      .toLowerCase()
+      .split(" ")
+      .join("-")}-${Date.now()}`,
+    title: removeSpecialChars(titleInput.value),
     date: dateInput.value,
-    description: descriptionInput.value,
+    description: removeSpecialChars(descriptionInput.value),
   }
   // Add the new object if the object is not found in objects list
   if (dataArrIndex === -1) {
@@ -63,7 +70,9 @@ const updateTaskContainer = () => {
 
 const deleteTask = (buttonEl) => {
   // Find the task to delete from taskData array
-  const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id)
+  const dataArrIndex = taskData.findIndex(
+    (item) => item.id === buttonEl.parentElement.id
+  )
   // buttonEl.parentElement.id = deleteButton.parentElement.id = taskItem.id
 
   // Remove from DOM
@@ -79,7 +88,9 @@ const deleteTask = (buttonEl) => {
 
 const editTask = (buttonEl) => {
   // Find the task to edit from taskData array
-  const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id)
+  const dataArrIndex = taskData.findIndex(
+    (item) => item.id === buttonEl.parentElement.id
+  )
 
   // Set as currentTask
   currentTask = taskData[dataArrIndex]
@@ -106,7 +117,8 @@ openTaskFormBtn.addEventListener("click", () => {
 })
 
 closeTaskFormBtn.addEventListener("click", () => {
-  const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value
+  const formInputsContainValues =
+    titleInput.value || dateInput.value || descriptionInput.value
 
   const formInputValuesUpdated =
     titleInput.value !== currentTask.title ||
