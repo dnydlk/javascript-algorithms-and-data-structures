@@ -1,0 +1,133 @@
+:root {
+  --background-color: #9ec8b9;
+  --input-color: #c8eadf;
+  --font-color: #092635;
+  --button-color: #5c8374;
+  --button-color-hover: #64907f;
+  --button2-color: #1b4242;
+  --color: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--font-color);
+}
+
+/** Title */
+h1 {
+  margin: 36px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  max-width: 800px;
+}
+
+.container * {
+  margin: 0 0 10px 0;
+}
+
+#change-due {
+  display: none;
+}
+
+#change-due p {
+  margin: 6px;
+}
+
+/** cash input */
+#cash {
+  border: none;
+  border-radius: 10px;
+  padding: 4px 4px 4px 8px;
+  font-size: 1.1rem;
+  width: 40%;
+  background-color: var(--input-color);
+  color: var(--font-color);
+}
+
+#purchase-btn {
+  padding: 6px 10px 6px 10px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--button-color);
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+#purchase-btn:hover {
+  background-color: var(--button-color-hover);
+}
+
+#purchase-btn:active {
+  background-color: var(--button-color);
+}
+
+.cash-container {
+  margin: 10px 0 0 0;
+}
+
+#total {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapper div:first-child {
+  width: 200px;
+  margin: 0 20px 0 0;
+}
+
+.wrapper div:nth-child(2) {
+  width: 200px;
+}
+
+.wrapper div:nth-child(2) label {
+  margin: 0;
+  font-weight: bold;
+}
+
+.wrapper div:nth-child(2) p {
+  margin: 8px 0 0 24px;
+}
+
+@media (max-width: 420px) {
+  img {
+    display: none;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .wrapper div:first-child {
+    width: 200px;
+    margin: 0;
+  }
+}
+
+.flex-box :first-child{
+  justify-content: center;
+}
