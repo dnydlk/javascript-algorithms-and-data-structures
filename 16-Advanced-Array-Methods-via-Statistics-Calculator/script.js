@@ -2,7 +2,8 @@ const getMean = (array) =>
   array.reduce((acc, el) => acc + el, 0) / array.length
 
 const getMedian = (array) => {
-  const sorted = array.slice().sort((a, b) => a - b)
+  // const sorted = array.slice().sort((a, b) => a - b)
+  const sorted = array.toSorted((a, b) => a - b)
 
   if (sorted.length % 2 === 0) {
     return getMean([
@@ -18,7 +19,8 @@ const getMode = (array) => {
   // Count the frequency of each element in the array
   // key = number; value = frequency
   const counts = {}
-  array.forEach((el) => (counts[el] = (counts[el] || 0) + 1))
+  // array.forEach((el) => (counts[el] = (counts[el] || 0) + 1))
+  array.forEach(el => counts[el] = counts[el] ? (counts[el] + 1) : 1);
 
   // If all elements have the same frequency, return null (no mode)
   if (new Set(Object.values(counts)).size === 1) {
